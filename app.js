@@ -28,7 +28,9 @@ app.delete('/plate/:id', deleteController.deletePlateById);
 
 app.get('/plates', getPlatesController.getAllPlates);
 
-
+app.get("*", (req, res) => {
+  res.status(404).send("404 Error: Route not found")
+});
 
 const PORT = process.env.PORT ;
 app.listen(PORT, () => {
